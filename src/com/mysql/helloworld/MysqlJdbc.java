@@ -71,6 +71,7 @@ public class MysqlJdbc {
 		return "deleteBook";
 	}
 	
+	//´«²Î
 	public String edit()
 	{
 		book.setISBN(name);
