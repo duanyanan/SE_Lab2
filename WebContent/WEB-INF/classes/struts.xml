@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<constant name="struts.devMode" value="true" />
+   <package name="HelloWorldSQL" extends="struts-default">
+	  <!-- 按照题目搜索 -->
+      <action name="searchBook" 
+            class="com.mysql.helloworld.MysqlJdbc" 
+            method="searchBook">
+            <result name="book">/Searchbook.jsp</result>
+      </action>
+      <!-- 按照作者姓名搜索 -->
+      <action name="searchAuthor"
+      		class="com.mysql.helloworld.MysqlJdbc"
+      		method="searchAuthor">
+            <result name="ok">/SearchAuthor.jsp</result>
+      </action>
+      
+      <!-- 插入成功时跳转到的界面 -->
+      <action name="success">
+      		<result>/success.jsp</result>
+      </action>
+      
+      <!-- 插入作者或图书时的辅助 -->
+      <action name="add">
+      		<result>/InsertBook.jsp</result>
+      </action>
+      
+      <!-- 跳转到主页的辅助 -->
+      <action name="home">
+      		<result>/index.jsp</result>
+      </action>
+      
+      <!-- 插入图书到库中 -->
+      <action name="insert"
+      		class="com.mysql.helloworld.MysqlJdbc"
+      		method="insertBook">
+      		<result name="insertBook">/success.jsp</result>
+      		<result name="NoAuthor">/NoAuthor.jsp</result>
+      </action>
+      
+      <!-- 插入作者到库中 -->
+      <action name="insertAuthor"
+      		class="com.mysql.helloworld.MysqlJdbc"
+      		method="insertAuthor">
+      		<result name="insertAuthor">/success.jsp</result>
+      </action>
+      
+      <!-- 删除选定的图书并重新显示查找结果 -->
+      <action name="delete"
+      		class="com.mysql.helloworld.MysqlJdbc"
+      		method="deleteBook">
+      		<result name="deleteBook" type="chain">searchBook</result>
+	  </action>
+	  
+	  <!-- 更新图书信息辅助按钮 -->
+	  <action name="edit"
+			class="com.mysql.helloworld.MysqlJdbc"
+      		method="edit">
+	  		<result name="edit">/EditBook.jsp</result>
+	  </action>
+	  
+	  <!-- 填写图书信息 -->
+	  <action name="editBook"
+	  		class="com.mysql.helloworld.MysqlJdbc"
+      		method="editBook">
+      		<result name="editBook" type="chain">searchBook</result>
+	  </action>
+   </package>
+</struts>
