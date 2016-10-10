@@ -275,7 +275,7 @@ public class Connect {
 				resultAuthor.add(author);
 				resultBook.add(book);
 				
-				/*System.out.print(ID+'\t');
+				System.out.print(ID+'\t');
 				System.out.print(code+'\t');
 				System.out.print(t+'\t');
 				System.out.print(P+'\t');
@@ -284,7 +284,7 @@ public class Connect {
 				System.out.print(name+'\t');
 				System.out.print(age);
 				System.out.print('\t');
-				System.out.print(country+'\n');*/
+				System.out.print(country+'\n');
 			}
 			rs.close();
 			System.out.println("Bsearch&print!");
